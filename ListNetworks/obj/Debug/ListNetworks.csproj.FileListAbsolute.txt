@@ -1,0 +1,12 @@
+E:\Programacao\freelancer\ListNetworks\ListNetworks\bin\Debug\ListNetworks.exe.config
+E:\Programacao\freelancer\ListNetworks\ListNetworks\bin\Debug\ListNetworks.exe
+E:\Programacao\freelancer\ListNetworks\ListNetworks\bin\Debug\ListNetworks.pdb
+E:\Programacao\freelancer\ListNetworks\ListNetworks\bin\Debug\SnmpSharpNet.dll
+E:\Programacao\freelancer\ListNetworks\ListNetworks\bin\Debug\SnmpSharpNet.pdb
+E:\Programacao\freelancer\ListNetworks\ListNetworks\bin\Debug\SnmpSharpNet.xml
+E:\Programacao\freelancer\ListNetworks\ListNetworks\obj\Debug\ListNetworks.csprojResolveAssemblyReference.cache
+E:\Programacao\freelancer\ListNetworks\ListNetworks\obj\Debug\ListNetworks.Form1.resources
+E:\Programacao\freelancer\ListNetworks\ListNetworks\obj\Debug\ListNetworks.Properties.Resources.resources
+E:\Programacao\freelancer\ListNetworks\ListNetworks\obj\Debug\ListNetworks.csproj.GenerateResource.Cache
+E:\Programacao\freelancer\ListNetworks\ListNetworks\obj\Debug\ListNetworks.exe
+E:\Programacao\freelancer\ListNetworks\ListNetworks\obj\Debug\ListNetworks.pdb
