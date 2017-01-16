@@ -51,7 +51,7 @@ namespace ListNetworks
             bool result = false;
             /* Get an SNMP Object
             */
-            SimpleSnmp snmpVerb = new SimpleSnmp(host, 161, "public", 20, 0);
+            SimpleSnmp snmpVerb = new SimpleSnmp(host, 161, "public", 200, 0);
             if (!snmpVerb.Valid)
             {
                 //MessageBox.Show("Seems that IP or comunauty is not cool");
