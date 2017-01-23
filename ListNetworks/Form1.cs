@@ -46,12 +46,32 @@ namespace ListNetworks
             return output;
         }
 
+        private bool getSnmpnext(string host, string OID)
+        {
+            bool result = false;
+            /* Get an SNMP Object
+            */
+            SimpleSnmp snmpVerb = new SimpleSnmp(host, 161, "public", 500, 0);
+            if (!snmpVerb.Valid)
+            {
+                //MessageBox.Show("Seems that IP or comunauty is not cool");
+                return result;
+            }
+            Oid varbind = new Oid(OID);
+            Dictionary<Oid, AsnType> snmpDataS = snmpVerb.GetNext(SnmpVersion.Ver1, new string[] { varbind.ToString() });
+            if (snmpDataS != null)
+            {
+                result = true;
+            }
+            return result;
+        }
+
         private bool getSnmp(string host, string OID)
         {
             bool result = false;
             /* Get an SNMP Object
             */
-            SimpleSnmp snmpVerb = new SimpleSnmp(host, 161, "public", 200, 0);
+            SimpleSnmp snmpVerb = new SimpleSnmp(host, 161, "public", 500, 0);
             if (!snmpVerb.Valid)
             {
                 //MessageBox.Show("Seems that IP or comunauty is not cool");
@@ -95,13 +115,15 @@ namespace ListNetworks
 
             if (SendARP(uintAddress, 0, macAddr, ref macAddrLen) == 0)
             {
-                //Console.WriteLine("{0} responded to ping", dst.ToString());
-                /* PRINTER-PORT-MONITOR-MIB - 1.3.6.1.4.1.2699
-                 * ppmPrinterIEEE1284DeviceId: 1.3.6.1.4.1.2699.1.2.1.2.1.1.3
-                 *
-                 * ppmPrinterName: 1.3.6.1.4.1.2699.1.2.1.2.1.1.2
-                 */
-                getSnmp(dst.ToString(), "1.3.6.1.4.1.2699.1.2.1.2.1.1.3.1");
+                getSnmpnext(dst.ToString(), "1.3.6.1.2.1.43");
+                if (getSnmpnext(dst.ToString(), "1.3.6.1.2.1.43") == true)
+                {
+                    /* PRINTER-PORT-MONITOR-MIB - 1.3.6.1.4.1.2699
+                     * ppmPrinterIEEE1284DeviceId: 1.3.6.1.4.1.2699.1.2.1.2.1.1.3
+                     * ppmPrinterName: 1.3.6.1.4.1.2699.1.2.1.2.1.1.2
+                     */
+                    getSnmp(dst.ToString(), "1.3.6.1.4.1.2699.1.2.1.2.1.1.3.1");
+                }
             }
         }
 
